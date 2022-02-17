@@ -7,8 +7,17 @@ def index():
     user = {
         'username': 'Hamilton',
         'dog': 'Zion',
-        'wife': 'Jenna'
-        
+        'wife': 'Jenna'      
         }
-
-    return render_template('index.html', title='Home', user=user)
+    posts = [
+        {
+        'author': {'username': 'John'},
+        'body': 'Beautiful day in Boston'
+    }, {
+        'author': {'username': 'Susan'},
+        'body': 'The Avengers movie is so weird!'
+    }, {
+        'author': {'username': 'Deryl'},
+        'body': 'I just had the best chorizo!'
+    } ]
+    return render_template('index.html', tile='Home', user=user, posts=posts)
