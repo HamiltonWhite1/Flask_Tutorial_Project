@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app_inst
+from app.forms import LoginForm
 
 @app_inst.route('/')
 @app_inst.route('/index')
@@ -20,4 +21,9 @@ def index():
         'author': {'username': 'Deryl'},
         'body': 'I just had the best chorizo!'
     } ]
-    return render_template('index.html', tile='Home', user=user, posts=posts)
+    return render_template('index.html', title='Home', user=user, posts=posts)
+
+@app_inst.route('/login')
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Sign in', form=form)
